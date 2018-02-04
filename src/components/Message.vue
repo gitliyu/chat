@@ -1,17 +1,10 @@
 <template>
-    <div class="friend-page">
-
+    <div class="message-page">
         <mu-list>
-            <mu-sub-header>群聊</mu-sub-header>
-            <mu-list-item>
-                暂无
-            </mu-list-item>
-            <mu-divider inset/>
-            <mu-sub-header>好友</mu-sub-header>
             <mu-list-item title="小华" @click="onChat()">
-                <img class="avatar" src="@/assets/image/avatar1.jpg" slot="leftAvatar"/>
+                <img class="avatar" src="@/assets/image/avatar1.jpg" slot="leftAvatar">
                 <span slot="describe">
-                    明月几时后，把酒问青天
+                    周末没事干，要不要一起吃个饭呀
                 </span>
             </mu-list-item>
             <mu-divider inset/>
@@ -22,7 +15,9 @@
 <script type="text/javascript">
     export default {
         data(){
-            return {}
+            return {
+
+            }
         },
         methods: {
             onChat () {
@@ -33,7 +28,7 @@
 </script>
 
 <style lang="scss">
-.friend-page{
+.message-page{
     .avatar{
         width: 3rem;
         border-radius: 50%;

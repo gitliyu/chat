@@ -4,9 +4,9 @@
         <router-view/>
         <mu-paper class="bottom-nav">
             <mu-bottom-nav>
-                <mu-bottom-nav-item to="/chat" title="消息" icon="textsms"/>
-                <mu-bottom-nav-item to="/friend" title="联系人" icon="account_box"/>
-                <mu-bottom-nav-item to="/personal" title="我" icon="perm_identity"/>
+                <mu-bottom-nav-item to="/message" title="消息" icon=":fa fa-commenting"/>
+                <mu-bottom-nav-item to="/friend" title="联系人" icon=":fa fa-group"/>
+                <mu-bottom-nav-item to="/personal" title="我" icon=":fa fa-user"/>
             </mu-bottom-nav>
         </mu-paper>
     </div>
@@ -31,6 +31,12 @@
         position: fixed;
         bottom: 0;
         width: 100%;
+        i{
+            font-size: 1rem;
+        }
+        .router-link-active{
+            color: #474a4f;
+        }
     }
 }
 </style>

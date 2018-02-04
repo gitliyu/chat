@@ -8,6 +8,7 @@ import 'muse-ui/dist/muse-ui.css'
 import 'muse-ui/dist/theme-carbon.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'font-awesome/css/font-awesome.css'
 
 Vue.use(MuseUI)
 Vue.use(ElementUI)

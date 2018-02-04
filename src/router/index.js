@@ -18,12 +18,12 @@ export default new Router({
           path: '/full',
           name: 'Full',
           component: () => System.import('@/components/Full'),
-          redirect : '/chat',
+          redirect : '/message',
           children : [
               {
-                  path: '/chat',
+                  path: '/message',
                   name: '消息',
-                  component: () => System.import('@/components/Chat'),
+                  component: () => System.import('@/components/Message'),
               },
               {
                   path: '/friend',
@@ -36,6 +36,11 @@ export default new Router({
                   component: () => System.import('@/components/Personal'),
               }
           ]
+      },
+      {
+          path: '/chat',
+          name: 'chat',
+          component: () => System.import('@/components/Chat'),
       },
   ]
 })

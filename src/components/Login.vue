@@ -21,10 +21,10 @@
         },
         methods: {
             login(){
-                this.$router.push('/chat');
+                this.$router.push('/message');
             },
             register(){
-
+                this.$message('TO DO');
             }
         }
     }
