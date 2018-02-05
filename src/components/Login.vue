@@ -26,8 +26,15 @@
         },
         methods: {
             login(){
-                console.log(this.users)
-//                this.$router.push('/message');
+                let currentUser = this.users.find( user => {
+                    return user.account === this.name;
+                });
+                if(currentUser && currentUser.password === this.password){
+                    this.$store.dispatch('setUser', currentUser);
+                    this.$router.push('/message');
+                } else{
+                    this.$message('用户名或密码不正确');
+                }
             },
             register(){
                 this.$message('TO DO');
