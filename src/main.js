@@ -9,16 +9,18 @@ import 'muse-ui/dist/theme-carbon.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/css/font-awesome.css'
+import store from './store'
 
-Vue.use(MuseUI)
-Vue.use(ElementUI)
+Vue.use(MuseUI);
+Vue.use(ElementUI);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
-})
+});

@@ -1,6 +1,5 @@
 <template>
     <div class="friend-page">
-
         <mu-list>
             <mu-sub-header>群聊</mu-sub-header>
             <mu-list-item>

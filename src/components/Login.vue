@@ -19,9 +19,15 @@
                 password : ''
             }
         },
+        computed : {
+            users : function(){
+                return this.$store.state.users ;
+            }
+        },
         methods: {
             login(){
-                this.$router.push('/message');
+                console.log(this.users)
+//                this.$router.push('/message');
             },
             register(){
                 this.$message('TO DO');
