@@ -7,6 +7,11 @@
 <script>
     export default {
         name: 'App',
+        created () {
+            if(this.$route.fullPath.indexOf('login') < 0){
+                this.$router.push('/login');
+            }
+        }
     }
 </script>
 

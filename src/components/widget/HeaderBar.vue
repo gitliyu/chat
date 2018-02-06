@@ -59,7 +59,9 @@
                 this.leftPopup = false;
             },
             onSignOut () {
-                this.$router.push('/login')
+                //TO DO
+                location.reload();
+//                this.$router.push('/login');
             }
         },
         watch : {
