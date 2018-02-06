@@ -9,19 +9,27 @@ app.get('/',function(req,res){
 });
 
 let io = socketIo(server);
+let users = [];
 
-io.on('connection',function(socket){ 
+io.on('connection',(socket) =>{
     console.log('有客户端连接:' + socket.id);
+    //关联id
+    socket.on('set id',(id) => {
+        socket.user = id;
+        users.push(socket);
+    });
 
-    socket.on('test', function(msg){
-		console.log(msg);
+    //1对1聊天
+    socket.on('private chat',(data) => {
+        let toSocket = users.find(item => item.user === data.to);
+        toSocket.emit('private chat', data.msg)
 	});
 
-    socket.on('disconnect', function(){
-    console.log('客户端断开');
-  });
+    socket.on('disconnect', () => {
+        console.log('客户端断开');
+    });
 });
 
-server.listen(httpPort, function(){
+server.listen(httpPort, () => {
 	console.log('listen success on ' + httpPort);
 });

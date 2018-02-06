@@ -12,6 +12,7 @@
 </template>
 
 <script type="text/javascript">
+    import Server from '@/server';
     export default {
         data(){
             return {
@@ -21,7 +22,7 @@
         },
         computed : {
             users : function(){
-                return this.$store.state.users ;
+                return this.$store.state.users;
             }
         },
         methods: {
@@ -31,6 +32,8 @@
                 });
                 if(currentUser && currentUser.password === this.password){
                     this.$store.dispatch('setUser', currentUser);
+                    window.io = new Server();
+                    io.emit('set id', currentUser.id);
                     this.$router.push('/message');
                 } else{
                     this.$message('用户名或密码不正确');

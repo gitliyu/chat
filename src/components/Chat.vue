@@ -1,23 +1,16 @@
 <template>
     <div class="chat-page">
-        <mu-appbar title="小华">
+        <mu-appbar :title="friend.name">
             <i class="el-icon-arrow-left" @click="onBack" slot="left"></i>
         </mu-appbar>
         <div class="message-box">
-            <div class="message-item">
+            <div :class="['message-item',{'mine': item.mine }]" v-for="item in records" :key="item.msg">
                 <div class="avatar">
-                    <img src="@/assets/image/avatar1.jpg"/>
+                    <img v-if="!item.mine" :src="'https://www.liyu.fun/img/' + friend.avatar"/>
+                    <img v-if="item.mine" :src="'https://www.liyu.fun/img/' + currentUser.avatar"/>
                 </div>
                 <div class="message">
-                    周末没事干，要不要一起吃个饭呀
-                </div>
-            </div>
-            <div class="message-item mine">
-                <div class="avatar">
-                    <img src="@/assets/image/avatar0.jpg"/>
-                </div>
-                <div class="message">
-                    好的
+                   {{item.msg}}
                 </div>
             </div>
         </div>
@@ -33,15 +26,41 @@
         data(){
             return {
                 message : '',
-                records : []
+                records : [],
+                friend_id : null,
+                friend : {}
             }
+        },
+        computed : {
+            users : function(){
+                return this.$store.state.users;
+            },
+            currentUser : function(){
+                return this.$store.state.currentUser;
+            }
+        },
+        mounted(){
+            this.friend_id = this.$route.params.id;
+            this.friend = this.users.find(item => item.id === this.friend_id);
+            io.on('private chat',(msg) =>{
+                this.records.push({
+                    msg : msg
+                });
+            })
         },
         methods: {
             onBack () {
                 this.$router.push('/message')
             },
             onSend () {
-                console.log(this.message)
+                this.records.push({
+                    msg  : this.message,
+                    mine : true
+                });
+                io.emit('private chat',{
+                    to   : this.friend_id,
+                    msg  : this.message
+                })
             }
         }
     }
@@ -65,6 +84,8 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            width: 100%;
+            padding-bottom: 0.5rem;
             &.mine{
                 float: right;
                 flex-direction: row-reverse;

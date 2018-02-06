@@ -7,10 +7,10 @@
             </mu-list-item>
             <mu-divider inset/>
             <mu-sub-header>好友</mu-sub-header>
-            <mu-list-item title="小华" @click="onChat()">
-                <img class="avatar" src="@/assets/image/avatar1.jpg" slot="leftAvatar"/>
+            <mu-list-item v-for="item in friends" :key="item.id" :title="item.name" @click="onChat(item.id)">
+                <img class="avatar" :src="'https://www.liyu.fun/img/' + item.avatar" slot="leftAvatar"/>
                 <span slot="describe">
-                    明月几时后，把酒问青天
+                   {{item.signature}}
                 </span>
             </mu-list-item>
             <mu-divider inset/>
@@ -21,11 +21,31 @@
 <script type="text/javascript">
     export default {
         data(){
-            return {}
+            return {
+                friends : []
+            }
+        },
+        computed : {
+            users : function(){
+                return this.$store.state.users;
+            },
+            currentUser : function(){
+                return this.$store.state.currentUser;
+            }
+        },
+        mounted(){
+            this.friends = this.users.filter(item => {
+                return this.currentUser.friends.includes(item.id)
+            })
         },
         methods: {
-            onChat () {
-                this.$router.push('/chat');
+            onChat (id) {
+                this.$router.push({
+                    name   : 'chat',
+                    params : {
+                        id : id
+                    }
+                });
             }
         }
     }

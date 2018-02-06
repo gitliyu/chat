@@ -3,7 +3,7 @@
         <!--头部菜单-->
         <mu-appbar :title="title">
             <div class="avatar-box" slot="left">
-                <img @click="openPopup" src="@/assets/image/avatar0.jpg">
+                <img @click="openPopup" :src="'https://www.liyu.fun/img/' + currentUser.avatar">
             </div>
             <i class="el-icon-plus" @click="openBottomSheet"  slot="right"></i>
         </mu-appbar>
@@ -19,14 +19,12 @@
         </mu-bottom-sheet>
         <!--左侧详情-->
         <mu-popup position="left" popupClass="left-popup" :open="leftPopup" @close="closePopup">
-            <img class="avatar" src="@/assets/image/avatar0.jpg">
+            <img class="avatar" :src="'https://www.liyu.fun/img/' + currentUser.avatar">
             <div class="text-center user-name">
-                小明
+                {{currentUser.name}}
             </div>
             <div class="signature">
-                从前有座山<br>
-                山里有座庙<br>
-                庙里有个小和尚
+                {{currentUser.signature}}
             </div>
             <el-button class="sign-out-btn" @click="onSignOut">退出</el-button>
         </mu-popup>
@@ -42,7 +40,11 @@
                 leftPopup : false
             }
         },
-        props : {},
+        computed : {
+            currentUser : function(){
+                return this.$store.state.currentUser;
+            }
+        },
         methods: {
             closeBottomSheet () {
                 this.bottomSheet = false

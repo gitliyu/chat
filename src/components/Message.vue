@@ -2,7 +2,7 @@
     <div class="message-page">
         <mu-list>
             <mu-list-item title="小华" @click="onChat()">
-                <img class="avatar" src="@/assets/image/avatar1.jpg" slot="leftAvatar">
+                <img class="avatar" :src="'https://www.liyu.fun/img/avatar0.jpg'" slot="leftAvatar">
                 <span slot="describe">
                     周末没事干，要不要一起吃个饭呀
                 </span>
