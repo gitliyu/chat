@@ -1,15 +1,19 @@
 # chat
 基于vue，使用socket.io实现的移动端实时通信
+### 执行命令
+```
+npm install
+npm run start
+```
 ### Complete
 - 项目文件初始化，依赖文件配置
 - socket封装
+- 1对1聊天
 ### In Progress
 - 页面及前台组件
-
-登陆页，聊天页，聊天详情页，好友页，个人信息页
-### To Do
 - 聊天室
-- 1对1聊天
+- 群聊
+### To Do
 - 数据库搭建
 - 整合laravel
 - 注册登录
