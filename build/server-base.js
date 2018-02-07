@@ -22,7 +22,9 @@ io.on('connection',(socket) =>{
     //1对1聊天
     socket.on('private chat',(data) => {
         let toSocket = users.find(item => item.user === data.to);
-        toSocket.emit('private chat', data.msg)
+        if(toSocket){
+            toSocket.emit('private chat', data.msg)
+        }
 	});
 
     socket.on('disconnect', () => {
