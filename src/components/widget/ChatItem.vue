@@ -26,7 +26,7 @@
         },
         methods: {
             onChat (id) {
-                if(canChat){
+                if(this.canChat){
                     this.$router.push({
                         name   : 'chat',
                         params : {
