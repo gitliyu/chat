@@ -8,6 +8,7 @@ npm run start
 ### Complete
 - 项目文件初始化，依赖文件配置
 - socket封装
+- 模拟数据
 - 1对1聊天
 ### In Progress
 - 页面及前台组件
