@@ -6,4 +6,8 @@ npm install
 npm run start
 ```
 使用模拟数据登录，用户信息见`src/assets/js/users.js`<br>
-纯前端简易版本，完整版请移步['chat-Laravel'](https://github.com/gitliyu/chat-Laravel)
+已实现功能：
+- 一对一聊天
+- 消息记录
+
+纯前端版本，完整版请移步['chat-Laravel'](https://github.com/gitliyu/chat-Laravel) (In progress)
