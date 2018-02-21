@@ -23,7 +23,7 @@ io.on('connection',(socket) =>{
     socket.on('private chat',(data) => {
         let toSocket = users.find(item => item.user === data.to);
         if(toSocket){
-            toSocket.emit('private chat', data.msg)
+            toSocket.emit('private chat', data)
         }
 	});
 

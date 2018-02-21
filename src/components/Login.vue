@@ -12,7 +12,6 @@
 </template>
 
 <script type="text/javascript">
-    import Server from '@/server';
     export default {
         data(){
             return {
@@ -32,7 +31,6 @@
                 });
                 if(currentUser && currentUser.password === this.password){
                     this.$store.dispatch('setUser', currentUser);
-                    window.io = new Server();
                     io.emit('set id', currentUser.id);
                     this.$router.push('/message');
                 } else{
