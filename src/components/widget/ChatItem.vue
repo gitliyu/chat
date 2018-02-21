@@ -32,7 +32,6 @@
         },
         mounted(){
             this.user = this.users.filter( user => user.id === this.id)[0];
-            console.log(this.user)
         },
         methods: {
             onChat (id) {
