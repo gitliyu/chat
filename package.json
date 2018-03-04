@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "server": "node build/server-base.js",
+    "server": "nodemon build/server-base.js",
     "start": "concurrently \"npm run server\" \"npm run dev\"",
     "build": "node build/build.js"
   },
@@ -17,6 +17,7 @@
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "muse-ui": "^2.1.0",
+    "nodemon": "^1.17.1",
     "socket.io": "^2.0.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
