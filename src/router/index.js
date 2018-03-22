@@ -12,35 +12,35 @@ export default new Router({
       {
           path: '/login',
           name: 'Login',
-          component: () => System.import('@/components/Login'),
+          component: require('@/components/Login').default,
       },
       {
           path: '/full',
           name: 'Full',
-          component: () => System.import('@/components/Full'),
+          component: require('@/components/Full').default,
           redirect : '/message',
           children : [
               {
                   path: '/message',
                   name: '消息',
-                  component: () => System.import('@/components/Message'),
+                  component: require('@/components/Message').default,
               },
               {
                   path: '/friend',
                   name: '联系人',
-                  component: () => System.import('@/components/Friend'),
+                  component: require('@/components/Friend').default,
               },
               {
                   path: '/personal',
                   name: '个人信息',
-                  component: () => System.import('@/components/Personal'),
+                  component: require('@/components/Personal').default,
               }
           ]
       },
       {
           path: '/chat',
           name: 'chat',
-          component: () => System.import('@/components/Chat'),
+          component: require('@/components/Chat').default,
       },
   ]
 })

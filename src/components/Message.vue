@@ -18,7 +18,7 @@
 <script type="text/javascript">
     export default {
         components: {
-            'ChatItem': () => System.import('./widget/ChatItem')
+            'ChatItem': require('./widget/ChatItem').default
         },
         data(){
             return {

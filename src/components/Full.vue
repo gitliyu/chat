@@ -15,7 +15,7 @@
 <script type="text/javascript">
     export default {
         components: {
-            'HeaderBar': () => System.import('./widget/HeaderBar')
+            'HeaderBar': require('./widget/HeaderBar').default
         },
         data(){
             return {}
