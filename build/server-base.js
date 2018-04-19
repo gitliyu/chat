@@ -4,34 +4,34 @@ let app = require('express')();
 let server = require('http').Server(app);
 let httpPort = config.dev.serverPort;
 
-app.get('/',function(req,res){
-    res.send('启动成功：' + httpPort);
+app.get('/', function (req, res) {
+  res.send('启动成功：' + httpPort);
 });
 
 let io = socketIo(server);
 let users = [];
 
-io.on('connection',(socket) =>{
-    console.log('有客户端连接:' + socket.id);
-    //关联id
-    socket.on('set id',(id) => {
-        socket.user = id;
-        users.push(socket);
-    });
+io.on('connection', (socket) => {
+  console.log('有客户端连接:' + socket.id);
+  //关联id
+  socket.on('set id', (id) => {
+    socket.user = id;
+    users.push(socket);
+  });
 
-    //1对1聊天
-    socket.on('private chat',(data) => {
-        let toSocket = users.find(item => item.user === data.to);
-        if(toSocket){
-            toSocket.emit('private chat', data)
-        }
-	});
+  //1对1聊天
+  socket.on('private chat', (data) => {
+    let toSocket = users.find(item => item.user === data.to);
+    if (toSocket) {
+      toSocket.emit('private chat', data)
+    }
+  });
 
-    socket.on('disconnect', () => {
-        console.log('客户端断开');
-    });
+  socket.on('disconnect', () => {
+    console.log('客户端断开');
+  });
 });
 
 server.listen(httpPort, () => {
-	console.log('listen success on ' + httpPort);
+  console.log('listen success on ' + httpPort);
 });
