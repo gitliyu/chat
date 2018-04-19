@@ -7,19 +7,6 @@ npm run start
 ```
 使用模拟数据登录，用户信息见`src/assets/js/users.js`<br>
 
-纯前端版本，完整版请移步['chat-Laravel'](https://github.com/gitliyu/chat-Laravel) (In progress)
+目前已实现1对1通信和聊天记录，感觉只靠vue已经写不下去了，整合laravel再来过吧
 
-### Complete
-- 项目文件初始化，依赖文件配置
-- socket封装
-- 模拟数据
-- 1对1聊天
-- 消息记录
-### In Progress
-- 页面及前台组件
-- 聊天室
-- 群聊
-### To Do
-- 添加好友
-- 添加群聊
-- 消息提醒
+纯前端版本，完整版请移步['chat-Laravel'](https://github.com/gitliyu/chat-Laravel) (并没有写多少)
