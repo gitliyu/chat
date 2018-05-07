@@ -37,6 +37,7 @@
       initRecords(val){
         let messages = {};
         val.forEach(item => {
+        if (!item.mine)
           messages[item.from] = item;
         });
         Object.values(messages).forEach(item => {
